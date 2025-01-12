@@ -34,7 +34,8 @@ function Cards () {
         
         setImgs(shuffledImgs);
         setScore(score => score + 1)
-        setCurrentImg(img.id) // add img id to the current img
+        setCurrentImg([...currentImg, img.id]) // add img id to the current img
+        console.log(currentImg)
 
         // reset score to 0 
         if (currentImg.includes(img.id)) {
@@ -43,6 +44,7 @@ function Cards () {
             if (score >= bestScore){
                 setBestScore(score)
             } 
+            setCurrentImg([])
             setScore(0)
           }
       };
